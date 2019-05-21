@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="hamburger">
+
+                <div id="hamburger-content">
+            
+                    <nav>
+            
+                        <ul>
+            
+                            <li><a href="#">Découvrir</a></li>
+            
+                            <li><a href="#">Comment ça marche</a></li>
+            
+                            <li><a href="#">À propos</a></li>
+            
+                            <li><a href="#">FAQ</a></li>
+            
+                        </ul>
+            
+                    </nav>
+            
+                    <a href="#" class="button button-sign-up">S'inscrire</a>
+            
+                    <a href="#" class="button button-sign-in">Se connecter</a>
+            
+                </div>
+            
+                <button id="hamburger-button">&#9776;</button>
+            
+                <div id="hamburger-sidebar">
+            
+                    <div id="hamburger-sidebar-header"></div>
+            
+                    <div id="hamburger-sidebar-body"></div>
+            
+                </div>
+            
+                <div id="hamburger-overlay"></div>
+            
+            </div>
+            <style>
+                h1 {
+            
+            font-size: 50px;
+            
+            line-height: 100px;
+            
+            }
+            
+            
+            #hamburger-content {
+            
+            display: none;
+            
+            }
+            
+            
+            #hamburger-button, #hamburger-sidebar,
+            
+            .hamburger-activated #hamburger-overlay {
+            
+            display: block;
+            
+            }
+            
+            
+            .hamburger-activated #hamburger-sidebar {
+            
+            transform: translateX(0);
+            
+            }
+            
+            </style>
+            <script>
+                var button = document.querySelector('#hamburger-button');
+            
+            var overlay = document.querySelector('#hamburger-overlay');
+            
+            var activatedClass = 'hamburger-activated';
+            
+            
+            button.addEventListener('click', function(e) {
+            
+                e.preventDefault();
+            
+            
+                this.parentNode.classList.add(activatedClass);
+            
+            });
+            
+            
+            button.addEventListener('keydown', function(e) {
+            
+                if (this.parentNode.classList.contains(activatedClass))
+            
+                {
+            
+                    if (e.repeat === false && e.which === 27)
+            
+                        this.parentNode.classList.remove(activatedClass);
+            
+                }
+            
+            });
+            
+            
+            overlay.addEventListener('click', function(e) {
+            
+                e.preventDefault();
+            
+            
+                this.parentNode.classList.remove(activatedClass);
+            
+            });
+            
+            </script>    
+</body>
+</html>
+
